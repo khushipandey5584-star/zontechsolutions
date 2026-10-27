@@ -1,4 +1,4 @@
-
+from flask import send_from_directory
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 import sqlite3
 import re
@@ -58,6 +58,9 @@ def create_database():
 # ==============================
 # HOME PAGE
 # ==============================
+@app.route('/google123.html')
+def google_verification():
+    return send_from_directory('.', 'google123.html')
 
 @app.route("/")
 def home():
