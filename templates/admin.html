@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | ZonTech Solutions</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 25px;
+            font-family: Arial, sans-serif;
+            background: #f7f7ff;
+            color: #15152b;
+        }
+        .container { max-width: 1250px; margin: auto; }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+        .logo {
+            color: #6557f5;
+            font-size: 25px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        h1 { margin-bottom: 8px; }
+        .muted { color: #64677b; }
+        .actions { display: flex; gap: 10px; align-items: center; }
+        .button {
+            display: inline-block;
+            padding: 11px 16px;
+            border: 0;
+            border-radius: 8px;
+            background: #6557f5;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .button.secondary { background: white; color: #6557f5;
+                            border: 1px solid #ddd9ff; }
+        .logout { margin: 0; }
+        .summary {
+            background: white;
+            border: 1px solid #e9e8f4;
+            border-radius: 12px;
+            padding: 22px;
+            margin: 25px 0;
+        }
+        .summary strong {
+            display: block;
+            color: #6557f5;
+            font-size: 34px;
+            margin-top: 8px;
+        }
+        .table-wrap {
+            overflow-x: auto;
+            background: white;
+            border: 1px solid #e9e8f4;
+            border-radius: 12px;
+        }
+        table { width: 100%; min-width: 900px; border-collapse: collapse; }
+        th, td {
+            padding: 14px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid #eee;
+            font-size: 13px;
+        }
+        th { background: #efedff; }
+        td.message {
+            min-width: 220px;
+            max-width: 350px;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+        td a { color: #5141d7; }
+        .empty { padding: 30px; text-align: center; color: #64677b; }
+        @media (max-width: 600px) {
+            body { padding: 15px; }
+            h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <header>
+            <div>
+                <a href="/" class="logo">ZonTech.</a>
+                <h1>Admin Dashboard</h1>
+                <p class="muted">Manage your customer inquiries.</p>
+            </div>
+
+            <div class="actions">
+                <a class="button secondary" href="/">View Website</a>
+
+                <form class="logout" method="POST"
+                      action="{{ url_for('admin_logout') }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <button class="button" type="submit">Logout</button>
+                </form>
+            </div>
+        </header>
+
+        <section class="summary">
+            <span class="muted">Inquiries shown (latest 500)</span>
+            <strong>{{ total }}</strong>
+        </section>
+
+        <h2>Customer Inquiries</h2>
+
+        {% if inquiries %}
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Service</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for inquiry in inquiries %}
+                            <tr>
+                                <td>{{ inquiry["id"] }}</td>
+                                <td>{{ inquiry["created_at"] }}</td>
+                                <td>{{ inquiry["name"] }}</td>
+                                <td>
+                                    <a href="mailto:{{ inquiry['email'] }}">
+                                        {{ inquiry["email"] }}
+                                    </a>
+                                </td>
+                                <td>{{ inquiry["service"] }}</td>
+                                <td class="message">{{ inquiry["message"] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="table-wrap empty">
+                No inquiries yet. Submit a test inquiry from your website's contact form.
+            </div>
+        {% endif %}
+    </main>
+</body>
+</html>

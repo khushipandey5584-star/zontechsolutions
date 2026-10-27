@@ -1,0 +1,1819 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ZonTech Solutions | Digital & Technology Services</title>
+    <meta name="description" content="ZonTech Solutions provides website development, software development, AI automation and modern digital solutions for businesses.">
+
+    <style>
+        :root {
+            --primary: #6655e8;
+            --primary-dark: #5040c8;
+            --dark: #111827;
+            --text: #526078;
+            --light: #f6f7fc;
+            --white: #ffffff;
+            --border: #e6e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button, input, textarea, select {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1120px, 92%);
+            margin: auto;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.97);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--dark);
+    font-size: 21px;
+    font-weight: 800;
+    white-space: nowrap;
+    text-decoration: none; /* Link ke niche ki line hatane ke liye */
+}
+
+
+.logo-img {
+    width: 42px;         /* Purane Z-icon ke barabar width */
+    height: 42px;        /* Purane Z-icon ke barabar height */
+    object-fit: contain; /* Isse aapka logo bina stretch huye box me fit ho jayega */
+    border-radius: 12px; /* Logo ke corners ko halka sa round karne ke liye */
+}
+
+.logo-icon {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    color: white;
+    background: linear-gradient(135deg, #6655e8, #24b8d5);
+    font-size: 22px;
+}
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: #384257;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            color: white !important;
+            background: var(--primary);
+            padding: 11px 17px;
+            border-radius: 9px;
+        }
+
+        .menu-toggle {
+            display: none;
+            border: 0;
+            background: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+
+        .hero {
+            padding: 78px 0;
+            background:
+                radial-gradient(circle at 85% 15%, #e7e5ff 0, transparent 34%),
+                linear-gradient(135deg, #ffffff, #f5f7ff);
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--primary);
+            background: #eeecff;
+            border-radius: 30px;
+            padding: 8px 14px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 59px);
+            line-height: 1.12;
+            letter-spacing: -1.5px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero-description {
+            color: var(--text);
+            font-size: 17px;
+            max-width: 540px;
+            margin-bottom: 30px;
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid transparent;
+            border-radius: 10px;
+            padding: 13px 20px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border-color: var(--border);
+            color: var(--dark);
+            background: white;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .hero-points {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-top: 28px;
+            color: #526078;
+            font-size: 13px;
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-visual img {
+            display: block;
+            width: 100%;
+            min-height: 320px;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 24px 65px rgba(31, 41, 90, 0.16);
+        }
+
+        .hero-note {
+            position: absolute;
+            left: -20px;
+            bottom: 22px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 13px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            scroll-margin-top: 78px;
+        }
+
+        .section {
+            padding: 82px 0;
+        }
+
+        .section-light {
+            background: var(--light);
+        }
+
+        .section-heading {
+            max-width: 690px;
+            text-align: center;
+            margin: 0 auto 43px;
+        }
+
+        .section-label {
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.8px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            line-height: 1.2;
+            margin: 12px 0;
+        }
+
+        .section-heading p {
+            color: var(--text);
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            display: block;
+            border-radius: 20px;
+            object-fit: cover;
+            min-height: 300px;
+        }
+
+        .about-content h2 {
+            font-size: 34px;
+            line-height: 1.2;
+            margin: 12px 0 20px;
+        }
+
+        .about-content p {
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 24px;
+        }
+
+        .about-feature {
+            padding: 15px;
+            background: #f5f4ff;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* SERVICES */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .service-card {
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            padding: 27px;
+            background: white;
+            transition: 0.25s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #c7c0ff;
+            box-shadow: 0 15px 35px rgba(30, 40, 80, 0.08);
+        }
+
+        .service-icon {
+            display: grid;
+            place-items: center;
+            width: 52px;
+            height: 52px;
+            background: #efedff;
+            border-radius: 14px;
+            font-size: 25px;
+            margin-bottom: 18px;
+        }
+
+        .service-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        /* LEADERSHIP */
+
+       .leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    max-width: 850px;
+    margin: auto;
+}
+
+.leader-card {
+    padding: 34px 25px;
+    text-align: center;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(20,30,60,0.05);
+}
+
+/* --- NEW: Image ko barabar aur gol karne ke liye styling --- */
+.leader-card img {
+    width: 90px;             /* Size ko avatar ke barabar rakha hai */
+    height: 90px;            /* Width aur height barabar hone se square banega */
+    object-fit: cover;       /* Isse photo khinchegi nahi, perfectly crop hogi */
+    border-radius: 50%;      /* Isse photo ekdam gol (circle) ho jayegi */
+    margin: 0 auto 18px;     /* Center me alignment aur niche se gap ke liye */
+    display: block;          /* Center alignment sahi se kaam kare isliye */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Halka sa shadow premium look ke liye */
+}
+
+/* Purana avatar code (isko aap hata bhi sakte hain agar sirf photo dikhani hai) */
+.leader-avatar {
+    display: none;           /* Jab photo lag gayi hai, to is text wale avatar ko chupa (hide) diya hai */
+    place-items: center;
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    margin: 0 auto 18px;
+    background: linear-gradient(135deg, #6655e8, #27b8d4);
+    color: white;
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.leader-card h3 {
+    font-size: 22px;
+    margin-bottom: 7px;
+}
+
+.leader-role {
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.leader-description {
+    color: var(--text);
+    font-size: 14px;
+}
+
+        /* PRICING */
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        .price-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 25px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: white;
+        }
+
+        .price-card.featured {
+            border: 2px solid var(--primary);
+            box-shadow: 0 12px 35px rgba(102,85,232,0.10);
+        }
+
+        .popular-label {
+            display: inline-block;
+            align-self: flex-start;
+            color: var(--primary);
+            background: #eeecff;
+            border-radius: 30px;
+            padding: 5px 10px;
+            font-size: 11px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .price-card h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: var(--primary);
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .price span {
+            color: var(--text);
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        .price-summary {
+            color: var(--text);
+            font-size: 14px;
+            margin-bottom: 17px;
+        }
+
+        .price-card ul {
+            padding-left: 20px;
+            color: var(--text);
+            font-size: 14px;
+            line-height: 2.1;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .price-btn {
+            text-align: center;
+            border-radius: 9px;
+            padding: 12px;
+            color: white;
+            background: var(--primary);
+            font-weight: 700;
+        }
+
+        .price-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .pricing-note {
+            text-align: center;
+            color: var(--text);
+            font-size: 12px;
+            margin-top: 24px;
+        }
+
+        /* CONTACT */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-size: 35px;
+            line-height: 1.2;
+            margin: 12px 0 18px;
+        }
+
+        .contact-info > p {
+            color: var(--text);
+            margin-bottom: 22px;
+        }
+
+        .contact-detail {
+            padding: 15px;
+            background: var(--light);
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+
+        .contact-detail strong {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .contact-detail a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+.contact-detail a:hover {
+    text-decoration: underline;
+}
+
+        .contact-form {
+            padding: 28px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: 0 10px 35px rgba(20,30,60,0.05);
+            background: white;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 17px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 13px;
+            border: 1px solid #dce0eb;
+            border-radius: 9px;
+            outline: none;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(102,85,232,0.10);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            width: 100%;
+            border: 0;
+        }
+
+        .form-status {
+            margin-top: 12px;
+            font-size: 14px;
+            overflow-wrap: anywhere;
+        }
+
+        /* CTA */
+
+        .cta-section {
+            padding: 65px 0;
+            background: #171b35;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(28px, 4vw, 38px);
+            margin-bottom: 13px;
+        }
+
+        .cta-section p {
+            color: #d4d8e9;
+            margin-bottom: 25px;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            padding: 28px 0;
+            background: #0d1224;
+            color: #d0d5e5;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            font-size: 13px;
+        }
+
+        .footer a {
+            color: white;
+        }
+
+        /* FLOATING CONTACT BUTTONS */
+
+        .floating-contact {
+            position: fixed;
+            right: 17px;
+            bottom: 20px;
+            z-index: 1500;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .floating-contact a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 800;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.20);
+            transition: transform 0.2s;
+        }
+
+        .floating-contact a:hover {
+            transform: translateY(-3px);
+        }
+
+        .whatsapp-button {
+            background: #16a34a;
+        }
+
+        .call-button {
+            background: #6655e8;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+            .nav-links {
+                gap: 13px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero-grid,
+            .about-grid,
+            .contact-grid {
+                gap: 30px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: auto;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .nav-inner {
+                min-height: 68px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 68px;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 18px 5%;
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 12px 20px rgba(0,0,0,0.06);
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 12px 0;
+                font-size: 15px;
+            }
+
+            .nav-links .nav-cta {
+                text-align: center;
+                margin-top: 8px;
+                padding: 12px;
+            }
+
+            .hero {
+                padding: 55px 0;
+            }
+
+            .hero-grid,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-visual {
+                margin-top: 10px;
+            }
+
+            .hero-visual img {
+                min-height: 230px;
+            }
+
+            .hero-note {
+                left: 10px;
+                bottom: 10px;
+            }
+
+            .section {
+                padding: 62px 0;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content h2,
+            .contact-info h2 {
+                font-size: 29px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 17px;
+            }
+
+            .logo-icon {
+                width: 25px;
+                height: 25px;
+            }
+
+            .hero h1 {
+                font-size: 37px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .about-features,
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 20px;
+            }
+
+            .floating-contact {
+                right: 10px;
+                bottom: 12px;
+            }
+
+            .floating-contact a {
+                padding: 11px 13px;
+                font-size: 12px;
+            }
+        } * ===== ZONTECH PROFESSIONAL MEDIUM DESIGN ===== */
+
+/* Overall text and spacing */
+body {
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+.container {
+    width: min(1080px, 92%);
+}
+
+/* Navbar */
+.nav-inner {
+    min-height: 70px;
+    gap: 18px;
+}
+
+.logo {
+    font-size: 19px;
+    gap: 9px;
+}
+
+.logo-img {
+    width: 38px;
+    height: 38px;
+}
+
+.nav-links {
+    gap: 18px;
+}
+
+.nav-links a {
+    font-size: 13px;
+}
+
+/* Hero section */
+.hero {
+    padding: 60px 0;
+}
+
+.hero-grid {
+    gap: 38px;
+}
+
+.hero h1 {
+    font-size: clamp(34px, 4.2vw, 49px);
+    line-height: 1.16;
+    letter-spacing: -1px;
+}
+
+.hero-description {
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+.hero-visual img {
+    min-height: 290px;
+    max-height: 390px;
+}
+
+.btn {
+    padding: 11px 17px;
+    font-size: 13px;
+}
+
+/* All sections */
+.section {
+    padding: 65px 0;
+}
+
+.section-heading {
+    margin-bottom: 34px;
+}
+
+.section-heading h2 {
+    font-size: clamp(27px, 3.4vw, 36px);
+}
+
+.section-heading p {
+    font-size: 14px;
+}
+
+/* About section */
+.about-grid {
+    gap: 35px;
+}
+
+.about-image img {
+    min-height: 270px;
+    max-height: 360px;
+}
+
+.about-content h2 {
+    font-size: 30px;
+}
+
+.about-content p {
+    font-size: 14px;
+}
+
+.about-feature {
+    padding: 12px;
+    font-size: 13px;
+}
+
+/* Service cards */
+.services-grid {
+    gap: 18px;
+}
+
+.service-card {
+    padding: 23px;
+    border-radius: 15px;
+}
+
+.service-icon {
+    width: 46px;
+    height: 46px;
+    font-size: 22px;
+    margin-bottom: 14px;
+}
+
+.service-card h3 {
+    font-size: 17px;
+}
+
+.service-card p {
+    font-size: 13px;
+}
+
+/* Leadership */
+.leadership-grid {
+    max-width: 800px;
+    gap: 22px;
+}
+
+.leader-card {
+    padding: 28px 22px;
+}
+
+.leader-card img {
+    width: 82px;
+    height: 82px;
+}
+
+.leader-card h3 {
+    font-size: 20px;
+}
+
+.leader-role {
+    font-size: 14px;
+}
+
+.leader-description {
+    font-size: 13px;
+}
+
+/* Pricing */
+.pricing-grid {
+    gap: 18px;
+}
+
+.price-card {
+    padding: 25px 22px;
+}
+
+.price-card h3 {
+    font-size: 19px;
+}
+
+.price {
+    font-size: 27px;
+}
+
+.price-summary,
+.price-card ul {
+    font-size: 13px;
+}
+
+.price-btn {
+    padding: 11px;
+    font-size: 13px;
+}
+
+/* Contact section */
+.contact-grid {
+    gap: 30px;
+}
+
+.contact-info h2 {
+    font-size: 31px;
+}
+
+.contact-info > p {
+    font-size: 14px;
+}
+
+.contact-detail {
+    padding: 13px 15px;
+    border: 1px solid var(--border);
+}
+
+.contact-detail strong {
+    font-size: 14px;
+}
+
+.contact-detail span {
+    color: var(--text);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.contact-form {
+    padding: 24px;
+}
+
+.form-group label {
+    font-size: 13px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 11px 12px;
+    font-size: 14px;
+}
+
+/* Call to action */
+.cta-section {
+    padding: 52px 0;
+}
+
+.cta-section p {
+    font-size: 14px;
+}
+
+/* Footer */
+.footer {
+    padding: 23px 0;
+}
+
+/* Floating contact buttons */
+.floating-contact {
+    gap: 8px;
+}
+
+.floating-contact a {
+    padding: 10px 14px;
+    font-size: 12px;
+}
+
+/* Tablet and mobile */
+@media (max-width: 900px) {
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .hero-grid,
+    .about-grid,
+    .contact-grid {
+        gap: 25px;
+    }
+
+    .pricing-grid {
+        max-width: 550px;
+    }
+}
+
+@media (max-width: 720px) {
+    .nav-inner {
+        min-height: 66px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .logo-img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .nav-links {
+        top: 66px;
+    }
+
+    .hero {
+        padding: 45px 0;
+    }
+
+    .hero h1 {
+        font-size: clamp(32px, 7vw, 40px);
+    }
+
+    .hero-visual img {
+        min-height: 220px;
+        max-height: 300px;
+    }
+
+    .section {
+        padding: 48px 0;
+    }
+
+    .about-content h2,
+    .contact-info h2 {
+        font-size: 27px;
+    }
+
+    .service-card {
+        padding: 21px;
+    }
+
+    .leader-card {
+        padding: 25px 20px;
+    }
+
+    .contact-form {
+        padding: 21px;
+    }
+
+    .cta-section {
+        padding: 43px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 91%;
+    }
+
+    .logo {
+        font-size: 15px;
+        gap: 7px;
+    }
+
+    .logo-img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-points {
+        gap: 10px;
+        font-size: 12px;
+    }
+
+    .section-heading h2 {
+        font-size: 27px;
+    }
+
+    .about-features,
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .floating-contact {
+        right: 9px;
+        bottom: 10px;
+    }
+
+    .floating-contact a {
+        padding: 9px 12px;
+        font-size: 11px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header class="navbar">
+        <div class="container nav-inner">
+<a href="#home" class="logo"> 
+    <img src="{{ url_for('static', filename='images/logo.jpg') }}" 
+    alt="ZonTech Logo" class="logo-img"> 
+    <span>ZonTech Solutions</span>
+</a>
+
+
+            <button class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false">
+                ☰
+            </button>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#services">Services</a>
+                <a href="#leadership">Leadership</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact Us</a>
+                <a href="#contact" class="nav-cta">Get a Quote</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HOME -->
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+
+                <div>
+                    <span class="eyebrow">YOUR DIGITAL GROWTH PARTNER</span>
+
+                    <h1>
+                        We Build Digital Experiences
+                        <span>That Grow Your Business.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        ZonTech Solutions helps businesses move forward
+                        with modern websites, software development,
+                        automation and innovative digital solutions.
+                    </p>
+
+                    <div class="button-row">
+                        <a href="#contact" class="btn btn-primary">
+                            Get a Free Quote →
+                        </a>
+
+                        <a href="#services" class="btn btn-outline">
+                            Explore Services
+                        </a>
+                    </div>
+
+                    <div class="hero-points">
+                        <span>✓ Modern Design</span>
+                        <span>✓ Mobile Friendly</span>
+                        <span>✓ Business Focused</span>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <img
+                        src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85"
+                        alt="Modern professional workspace"
+                        fetchpriority="high">
+
+                    <div class="hero-note">
+                        💡 Ideas into Digital Solutions
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ABOUT US -->
+        <section class="section" id="about">
+            <div class="container about-grid">
+
+                <div class="about-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=85"
+                        alt="Team collaborating on technology projects"
+                        loading="lazy">
+                </div>
+
+                <div class="about-content">
+                    <span class="section-label">ABOUT ZONTECH</span>
+
+                    <h2>Technology That Moves Your Business Forward</h2>
+
+                    <p>
+                        ZonTech Solutions is focused on building digital
+                        experiences and technology solutions that help
+                        businesses improve their online presence.
+                    </p>
+
+                    <p>
+                        From professional websites to custom software
+                        and automation, our goal is to understand each
+                        client's needs and deliver practical solutions.
+                    </p>
+
+                    <div class="about-features">
+                        <div class="about-feature">✓ Customer Focused</div>
+                        <div class="about-feature">✓ Modern Technology</div>
+                        <div class="about-feature">✓ Responsive Design</div>
+                        <div class="about-feature">✓ Growth Mindset</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="section section-light" id="services">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-label">OUR SERVICES</span>
+                    <h2>Solutions Designed for Your Business</h2>
+                    <p>
+                        Explore technology services to support your
+                        business goals and digital growth.
+                    </p>
+                </div>
+
+                <div class="services-grid">
+
+                    <article class="service-card">
+                        <div class="service-icon">🌐</div>
+                        <h3>Website Development</h3>
+                        <p>
+                            Professional, responsive websites that
+                            present your business online.
+                        </p>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">💻</div>
+                        <h3>Software Development</h3>
+                        <p>
+                            Custom software solutions designed around
+                            your business requirements.
+                        </p>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">🤖</div>
+                        <h3>AI &amp; Automation</h3>
+                        <p>
+                            Explore automation and AI-powered tools
+                            to simplify repetitive tasks.
+                        </p>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">☁️</div>
+                        <h3>Cloud Solutions</h3>
+                        <p>
+                            Technology solutions to support modern
+                            digital workflows and applications.
+                        </p>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">🎨</div>
+                        <h3>Web Design</h3>
+                        <p>
+                            Clean, user-friendly interfaces focused
+                            on usability and visual consistency.
+                        </p>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-icon">🛠️</div>
+                        <h3>Website Maintenance</h3>
+                        <p>
+                            Updates and improvements to help keep
+                            websites useful and up to date.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- LEADERSHIP -->
+        <section class="section" id="leadership">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-label">OUR LEADERSHIP</span>
+                    <h2>Meet the People Behind ZonTech</h2>
+                    <p>
+                        The people working to build the vision
+                        and future of ZonTech Solutions.
+                    </p>
+                </div>
+
+                <div class="leadership-grid">
+
+                   <article class="leader-card">
+    <!-- Flask me image load karne ka sahi tarika -->
+    <img src="{{ url_for('static', filename='images/khushi.jpg') }}" 
+         alt="Khushi Pandey" 
+         loading="eager" width="250" height="250">
+    <div class="leader-avatar">KP</div>
+    <h3>Khushi Pandey</h3>
+    <p class="leader-role">CEO &amp; Founder</p>
+    <p class="leader-description">
+        Leading the company's vision, strategy
+        and focus on innovative technology solutions.
+    </p>
+</article>
+
+<article class="leader-card">
+    <!-- Flask me image load karne ka sahi tarika -->
+    <img src="{{ url_for('static', filename='images/prashant.jpg') }}" 
+         alt="Prashant Upadhyay" 
+         loading="eager" width="250" height="250">
+    <div class="leader-avatar">PU</div>
+    <h3>Prashant Upadhyay</h3>
+    <p class="leader-role">Co-Founder &amp; Owner</p>
+    <p class="leader-description">
+        Supporting the company's development,
+        collaboration and business growth.
+    </p>
+</article>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICING -->
+        <section class="section section-light" id="pricing">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-label">OUR PRICING</span>
+                    <h2>Website Packages for Every Business</h2>
+                    <p>
+                        Choose a starting package and contact us
+                        for a quote based on your requirements.
+                    </p>
+                </div>
+
+                <div class="pricing-grid">
+
+                    <article class="price-card">
+                        <h3>Basic Website</h3>
+                        <p class="price">₹9,99 <span>onwards</span></p>
+                        <p class="price-summary">
+                            For individuals and small businesses.
+                        </p>
+
+                        <ul>
+                            <li>Up to 5 pages</li>
+                            <li>Responsive design</li>
+                            <li>Contact form</li>
+                            <li>Basic SEO setup</li>
+                        </ul>
+
+                        <a href="#contact" class="price-btn">
+                            Get a Quote
+                        </a>
+                    </article>
+
+                    <article class="price-card featured">
+                        <span class="popular-label">POPULAR PLAN</span>
+                        <h3>Business Website</h3>
+                        <p class="price">₹1,999 <span>onwards</span></p>
+                        <p class="price-summary">
+                            For growing businesses and startups.
+                        </p>
+
+                        <ul>
+                            <li>Up to 10 pages</li>
+                            <li>Custom design</li>
+                            <li>Contact form integration</li>
+                            <li>WhatsApp button</li>
+                            <li>Basic SEO setup</li>
+                        </ul>
+
+                        <a href="#contact" class="price-btn">
+                            Get a Quote
+                        </a>
+                    </article>
+
+                    <article class="price-card">
+                        <h3>Custom Website</h3>
+                        <p class="price">Custom</p>
+                        <p class="price-summary">
+                            For advanced business requirements.
+                        </p>
+
+                        <ul>
+                            <li>Custom functionality</li>
+                            <li>Database integration</li>
+                            <li>Admin dashboard options</li>
+                            <li>Project-specific features</li>
+                        </ul>
+
+                        <a href="#contact" class="price-btn">
+                            Discuss Your Project
+                        </a>
+                    </article>
+
+                </div>
+
+                <p class="pricing-note">
+                    Prices are illustrative starting estimates, not
+                    a binding offer. Final fees depend on scope,
+                    domain, hosting and additional requirements.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- CONTACT US -->
+        <section class="section" id="contact">
+            <div class="container contact-grid">
+
+                <div class="contact-info">
+                    <span class="section-label">CONTACT US</span>
+
+                    <h2>Let's Discuss Your Next Project</h2>
+
+                    <p>
+                        Have a website idea or need a technology
+                        solution? Send us your requirements and
+                        we can discuss the next steps.
+                    </p>
+
+                    <div class="contact-detail">
+                        <strong>🏢 Company</strong>
+                        <span>ZonTech Solutions</span>
+                    </div>
+
+<div class="contact-detail">
+    <strong>📍 Headquarters</strong>
+    <span>
+        Jaunpur - 222111,<br>
+        Uttar Pradesh, India
+    </span>
+</div>
+
+<div class="contact-detail">
+    <strong>🏬 Branch Office</strong>
+    <span>
+        Lucknow,<br>
+        Uttar Pradesh, India
+    </span>
+</div>
+
+<div class="contact-detail">
+    <strong>📞 Phone Numbers</strong>
+    <span>
+        <a href="tel:+919321396308">+91 93213 96308</a><br>
+        <a href="tel:+916394130698">+91 63941 30698</a>
+    </span>
+</div>
+
+<div class="contact-detail">
+    <strong>💬 WhatsApp</strong>
+    <span>
+        <a href="https://wa.me/919321396308"
+           target="_blank"
+           rel="noopener noreferrer">
+            Chat with us on WhatsApp
+        </a>
+    </span>
+</div>
+                    <div class="contact-detail">
+                        <strong>📩 Project Enquiries</strong>
+                        <span>Use the contact form to send your enquiry.</span>
+                    </div>
+
+                    <div class="contact-detail">
+                        <strong>💬 WhatsApp</strong>
+                        <span>Use the WhatsApp button to message us.</span>
+                    </div>
+
+                    <div class="contact-detail">
+                        <strong>📞 Call Us</strong>
+                        <span>Use the Call button to contact us.</span>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Your name"
+                                required
+                                maxlength="100">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="you@example.com"
+                                required
+                                maxlength="254">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Service Required *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Choose a service</option>
+                            <option value="Not sure yet">Not sure yet</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="Software Development">Software Development</option>
+                            <option value="AI & Automation">AI &amp; Automation</option>
+                            <option value="Cloud Solutions">Cloud Solutions</option>
+                            <option value="Web Design">Web Design</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Project Details *</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Tell us about your project..."
+                            required
+                            maxlength="5000"></textarea>
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-primary form-submit"
+                            id="submitButton">
+                        Send Enquiry →
+                    </button>
+
+                    <p class="form-status"
+                       id="formStatus"
+                       role="status"
+                       aria-live="polite"></p>
+                </form>
+
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Build Something Great?</h2>
+                <p>
+                    Share your idea with ZonTech Solutions and
+                    let's discuss the right solution for you.
+                </p>
+
+                <a href="#contact" class="btn btn-primary">
+                    Start Your Project →
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <p>
+                © <span id="currentYear"></span>
+                ZonTech Solutions. All rights reserved.
+            </p>
+
+            <p>
+                <a href="#home">Back to Top ↑</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP AND CALL BUTTONS -->
+    <div class="floating-contact">
+        <a class="whatsapp-button"
+           href="https://wa.me/919321396308"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Contact us on WhatsApp">
+            💬 WhatsApp
+        </a>
+
+        <a class="call-button"
+           href="tel:+919321396308"
+           aria-label="Call ZonTech Solutions">
+            📞 Call Us
+        </a>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Mobile navigation
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", function () {
+            const isOpen = navLinks.classList.toggle("open");
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+            menuToggle.textContent = isOpen ? "✕" : "☰";
+        });
+
+        // Close menu after clicking a link
+        navLinks.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("open");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.textContent = "☰";
+            });
+        });
+
+        // Current year
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+
+        // Contact form - submits to existing Flask backend
+        const contactForm = document.getElementById("contactForm");
+        const formStatus = document.getElementById("formStatus");
+        const submitButton = document.getElementById("submitButton");
+
+        contactForm.addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            formStatus.textContent = "Sending your enquiry...";
+            submitButton.disabled = true;
+
+            const formData = {
+                name: document.getElementById("name").value.trim(),
+                email: document.getElementById("email").value.trim(),
+                service: document.getElementById("service").value,
+                message: document.getElementById("message").value.trim()
+            };
+
+            try {
+                const response = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json().catch(function () {
+                    return {};
+                });
+
+                if (!response.ok) {
+                    throw new Error(
+                        result.message ||
+                        result.error ||
+                        "Unable to send enquiry. Please try again."
+                    );
+                }
+
+                formStatus.textContent =
+                    result.message || "Your enquiry has been submitted successfully!";
+
+                contactForm.reset();
+
+            } catch (error) {
+                formStatus.textContent =
+                    error.message ||
+                    "Something went wrong. Please try again later.";
+            } finally {
+                submitButton.disabled = false;
+            }
+        });
+    </script>
+
+</body>
+</html>

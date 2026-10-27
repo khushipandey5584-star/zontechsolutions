@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | ZonTech Solutions</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f5f4ff;
+            color: #15152b;
+        }
+        .card {
+            width: 100%;
+            max-width: 420px;
+            padding: 32px;
+            border-radius: 16px;
+            background: white;
+            box-shadow: 0 15px 50px #25205212;
+        }
+        .logo {
+            color: #6557f5;
+            font-size: 25px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        h1 { margin: 24px 0 8px; }
+        p { color: #64677b; line-height: 1.6; }
+        label {
+            display: block;
+            margin: 16px 0 7px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        button {
+            width: 100%;
+            margin-top: 22px;
+            padding: 13px;
+            color: white;
+            background: #6557f5;
+            border: 0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover { background: #4d3de0; }
+        .error { color: #b42332; }
+        .back { display: inline-block; margin-top: 18px; }
+    </style>
+</head>
+<body>
+    <main class="card">
+        <a href="/" class="logo">ZonTech.</a>
+        <h1>Admin Login</h1>
+        <p>Sign in to view website inquiries.</p>
+
+        {% if error %}
+            <p class="error" role="alert">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('admin_login') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text"
+                   autocomplete="username" required>
+
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password"
+                   autocomplete="current-password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <a class="back" href="/">← Back to website</a>
+    </main>
+</body>
+</html>
