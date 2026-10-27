@@ -58,9 +58,9 @@ def create_database():
 # ==============================
 # HOME PAGE
 # ==============================
-@app.route('/google123.html')
+@app.route('/google7689d59b4f7702e4.html')
 def google_verification():
-    return send_from_directory('.', 'google123.html')
+    return send_from_directory('.', 'google7689d59b4f7702e4.html')
 
 @app.route("/")
 def home():
