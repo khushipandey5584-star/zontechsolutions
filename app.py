@@ -1,10 +1,22 @@
-from flask import send_from_directory
-from flask import Flask, render_template, request, jsonify, session, redirect, url_for
-import sqlite3
+
+import os
 import re
 import secrets
+import sqlite3
+
 from pathlib import Path
 from functools import wraps
+from flask import (
+    Flask,
+    Response,
+    send_from_directory,
+    render_template,
+    request,
+    jsonify,
+    session,
+    redirect,
+    url_for,
+)
 
 app = Flask(__name__)
 
@@ -12,10 +24,17 @@ app = Flask(__name__)
 # ZONTECH SOLUTIONS CONFIGURATION
 # ==============================
 
-app.secret_key = "ZonTech_Secret_Key_Change_This_2026_9xK7mP2q"
+# Set these environment variables in Render before deployment.
+app.secret_key = os.environ.get(
+    "FLASK_SECRET_KEY",
+    "CHANGE_THIS_TO_A_NEW_RANDOM_SECRET_KEY"
+)
 
-ADMIN_USERNAME = "admin"
-ADMIN_PASSWORD = "ZonTech@Admin2026!"
+ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", "admin")
+ADMIN_PASSWORD = os.environ.get(
+    "ADMIN_PASSWORD",
+    "CHANGE_THIS_TO_A_STRONG_ADMIN_PASSWORD"
+)
 
 BASE_DIR = Path(__file__).resolve().parent
 DATABASE = BASE_DIR / "zontech.db"
@@ -56,15 +75,44 @@ def create_database():
 
 
 # ==============================
+# GOOGLE SITE VERIFICATION
+# ==============================
+
+@app.route("/google7689d59b4f7702e4.html")
+def google_verification():
+    return send_from_directory(
+        app.root_path,
+        "google7689d59b4f7702e4.html"
+    )
+
+
+# ==============================
 # HOME PAGE
 # ==============================
-@app.route('/google7689d59b4f7702e4.html')
-def google_verification():
-    return send_from_directory('.', 'google7689d59b4f7702e4.html')
 
 @app.route("/")
 def home():
     return render_template("index.html")
+
+
+# ==============================
+# XML SITEMAP
+# ==============================
+
+@app.route("/sitemap.xml")
+def sitemap():
+    xml_content = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://zontechsolutions.onrender.com/</loc>
+    </url>
+</urlset>"""
+
+    return Response(
+        xml_content,
+        mimetype="application/xml"
+    )
+
 
 
 # ==============================
@@ -90,7 +138,9 @@ def contact():
 
     name = str(data.get("name", "")).strip()
     email = str(data.get("email", "")).strip()
-    service = str(data.get("service", "Not sure yet")).strip()
+    service = str(
+        data.get("service", "Not sure yet")
+    ).strip()
     message = str(data.get("message", "")).strip()
 
     if not name or not email or not message:
@@ -109,7 +159,10 @@ def contact():
             "message": "Some information is too long."
         }), 400
 
-    if not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", email):
+    if not re.fullmatch(
+        r"[^@\s]+@[^@\s]+\.[^@\s]+",
+        email
+    ):
         return jsonify({
             "success": False,
             "message": "Please enter a valid email address."
@@ -138,7 +191,9 @@ def contact():
         app.logger.exception("Database error")
         return jsonify({
             "success": False,
-            "message": "Could not save your inquiry. Please try again."
+            "message": (
+                "Could not save your inquiry. Please try again."
+            )
         }), 500
 
 
@@ -151,6 +206,7 @@ def admin_required(view):
     def wrapped_view(*args, **kwargs):
         if not session.get("admin_logged_in"):
             return redirect(url_for("admin_login"))
+
         return view(*args, **kwargs)
 
     return wrapped_view
