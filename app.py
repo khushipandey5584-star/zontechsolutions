@@ -84,7 +84,22 @@ def google_verification():
         app.root_path,
         "google7689d59b4f7702e4.html"
     )
+# ==============================
+# ROBOTS.TXT - GOOGLE CRAWLING
+# ==============================
 
+@app.route("/robots.txt")
+def robots_txt():
+    content = """User-agent: *
+Allow: /
+
+Sitemap: https://zontechsolutions.onrender.com/sitemap.xml
+"""
+
+    return Response(
+        content,
+        mimetype="text/plain"
+    )
 
 # ==============================
 # HOME PAGE
@@ -93,7 +108,6 @@ def google_verification():
 @app.route("/")
 def home():
     return render_template("index.html")
-
 
 # ==============================
 # XML SITEMAP
@@ -112,7 +126,6 @@ def sitemap():
         xml_content,
         mimetype="application/xml"
     )
-
 
 
 # ==============================
